@@ -1,0 +1,76 @@
+\documentclass[a4paper,11pt]{moderncv}
+
+\usepackage{ifmtarg}
+\usepackage[fixed]{fontawesome5}
+\usepackage{microtype}
+
+\usepackage[margin=1.5in]{geometry}
+\recomputelengths
+
+\moderncvtheme{classic}
+\sethintscolumntowidth{Xxx--Xxx 2023}
+
+\colorlet{color0}{black}
+\colorlet{color1}{cyan!40!green!80!blue}
+\colorlet{color2}{black!55}
+
+\renewcommand{\emailsymbol}{\faEnvelope[regular]\;}
+
+\nopagenumbers{}
+
+
+\NewDocumentCommand{\cvtwolines}{mmm}{%
+\cvitem{#1}{\begin{minipage}[t]{\linewidth}#2\ifx&#3&\else\\\small #3\fi\end{minipage}}
+}
+\NewDocumentCommand{\cvspeaker}{mmmm}{%
+\cvtwolines{#1}{``#2'', {\slshape #3}}{#4}
+}
+\NewDocumentCommand{\cvteaching}{mmmm}{%
+\cvline{#1}{#4 for \emph{#2}, {\slshape #3}}
+}
+\makeatletter
+\NewDocumentCommand{\cvpublication}{mmom}{%
+\cvline{#1}{\emph{#2}\IfValueT{#3}{\@ifmtarg{#3}{}{ (with #3)}}, #4}
+}
+\NewDocumentCommand{\cvarxivpreprint}{mmom}{
+\cvpublication{#1}{#2}[#3]{preprint (\href{https://arxiv.org/abs/#4}{\texttt{arXiv:#4}})}
+}
+\makeatother
+
+
+\firstname{Filippo}
+\familyname{Baroni}
+\email{filippo.baroni@maths.ox.ac.uk}
+
+
+\begin{document}
+
+\maketitle{}
+
+\section{Education}
+\cventry{2021 -- \phantom{2023}}{DPhil}{University of Oxford}{}{}{Advisor: Marc Lackenby}
+\cvline{2016 -- 2021}{Student of mathematics at \emph{Scuola Normale Superiore di Pisa}}
+\cventry{2019 -- 2021}{Master's degree}{University of Pisa}{}{110/110 \emph{cum laude}}{Advisor: Carlo Petronio\\Degree thesis: \emph{Realisability of branching data with a short partition}}
+\cventry{2016 -- 2021}{Bachelor's degree}{University of Pisa}{}{110/110 \emph{cum laude}}{Advisor: Riccardo Benedetti\\Degree thesis: \emph{Singular homology of fibred spaces}}
+
+\section{Publications}
+\cvarxivpreprint{2023}{Solution of the Hurwitz problem with a length-2 partition}[Carlo Petronio]{2305.06634}
+
+
+
+\section{Invited speaker}
+\cvspeaker{May 2023}{Junior topology and group theory seminar}{University of Oxford}{Talk: \emph{A brief history of virtual Haken}}
+\cvspeaker{Jun 2022}{Junior topology and group theory seminar}{University of Oxford}{Talk: \emph{Existence of branched coverings of surfaces}}
+\cvspeaker{Mar 2022}{Seminario BabyGeometri}{University of Pisa}{Talk: \emph{An algorithm for unknot recognition}}
+\cvspeaker{Feb 2021}{International young seminar on bounded cohomology and simplicial volume}{online}{Talk: \emph{The proportionality principle via bounded cohomology}}
+
+\section{Teaching}
+\cvteaching{Apr--Jun 2023}{Graph theory}{St Catherine's College, Oxford}{Tutor}
+\cvteaching{Jan--Mar 2023}{Low-dimensional topology and knot theory}{University of Oxford}{Tutor}
+\cvteaching{Oct--Dec 2022}{Set theory}{University of Oxford}{Tutor}
+\cvteaching{Oct--Dec 2022}{Graph theory}{St Catherine's College, Oxford}{Tutor}
+\cvteaching{Apr--Jun 2022}{Graph theory}{St Catherine's College, Oxford}{Tutor}
+\cvteaching{Jan--Mar 2022}{Low-dimensional topology and knot theory}{University of Oxford}{Teaching assistant}
+\cvteaching{Oct--Dec 2021}{Geometry of surfaces}{University of Oxford}{Teaching assistant}
+
+\end{document}
