@@ -1,8 +1,14 @@
+% !TEX TS-program = lualatex
+
 \documentclass[a4paper,11pt]{moderncv}
 
+% \usepackage{fontspec}
 \usepackage{ifmtarg}
 \usepackage[fixed]{fontawesome5}
 \usepackage{microtype}
+
+
+
 
 \usepackage[left=1.5in,right=1.5in,top=1.3in,bottom=1.3in]{geometry}
 \recomputelengths
@@ -33,7 +39,7 @@
 \cvline{#1}{\emph{#2}\IfValueT{#3}{\@ifmtarg{#3}{}{ (with #3)}}, #4}
 }
 \NewDocumentCommand{\cvarxivpreprint}{mmom}{
-\cvpublication{#1}{#2}[#3]{preprint (\href{https://arxiv.org/abs/#4}{\texttt{arXiv:#4}})}
+\cvpublication{#1}{#2}[#3]{preprint (\href{https://arxiv.org/abs/#4}{\texttt{arXiv:}}\allowbreak\href{https://arxiv.org/abs/#4}{\texttt{#4}})}
 }
 \makeatother
 
@@ -54,7 +60,8 @@
 \cventry{2016 -- 2019}{Bachelor's degree}{University of Pisa}{}{}{Advisor: Riccardo Benedetti\\Degree thesis: \emph{Singular homology of fibred spaces}}
 
 \section{Publications}
-\cvarxivpreprint{2023}{Solution of the Hurwitz problem with a length-2 partition}[Carlo Petronio]{2305.06634}
+\cvarxivpreprint{2023}{Classification of genus-two surfaces in $S^3$}{2309.05387}
+\cvarxivpreprint{2023}{Solution of the Hurwitz problem with a length-$2$ partition}[Carlo Petronio]{2305.06634}
 \cvline{2022}{\emph{The Proportionality Principle via Bounded Cohomology}, in \emph{Bounded Cohomology and Simplicial Volume} (pp.~118--131), Cambridge University Press}
 
 
