@@ -10,33 +10,39 @@
 
 
 
-\usepackage[left=1.5in,right=1.5in,top=1.3in,bottom=1.3in]{geometry}
+\usepackage[left=1.5in,right=1.5in]{geometry}
 \recomputelengths
 
 \moderncvtheme{classic}
 \sethintscolumntowidth{Xxx--Xxx 2023}
 
 \colorlet{color0}{black}
-\colorlet{color1}{cyan!40!green!80!blue}
+\definecolor{color1}{HTML}{009895}
 \colorlet{color2}{black!55}
+\colorlet{date color}{black!55}
+
+\NewDocumentCommand{\mycvitem}{mm}{\cvitem{\textcolor{date color}{#1}}{#2}}
+\NewDocumentCommand{\mycvline}{mm}{\cvline{\textcolor{date color}{#1}}{#2}}
+\NewDocumentCommand{\mycventry}{mmmmmm}{\cventry{\textcolor{date color}{#1}}{#2}{#3}{#4}{#5}{#6}}
 
 \renewcommand{\emailsymbol}{\faEnvelope[regular]\;}
+\renewcommand{\homepagesymbol}{\faGlobe\;}
 
 \nopagenumbers{}
 
 
 \NewDocumentCommand{\cvtwolines}{mmm}{%
-\cvitem{#1}{\begin{minipage}[t]{\linewidth}#2\ifx&#3&\else\\\small #3\fi\end{minipage}}
+\mycvitem{#1}{\begin{minipage}[t]{\linewidth}#2\ifx&#3&\else\\\small #3\fi\end{minipage}}
 }
 \NewDocumentCommand{\cvspeaker}{mmmm}{%
 \cvtwolines{#1}{``#2'', {\slshape #3}}{#4}
 }
 \NewDocumentCommand{\cvteaching}{mmmm}{%
-\cvline{#1}{#4 for \emph{#2}, {\slshape #3}}
+\mycvline{#1}{#4 for \emph{#2}, {\slshape #3}}
 }
 \makeatletter
 \NewDocumentCommand{\cvpublication}{mmom}{%
-\cvline{#1}{\emph{#2}\IfValueT{#3}{\@ifmtarg{#3}{}{ (with #3)}}, #4}
+\mycvline{#1}{\emph{#2}\IfValueT{#3}{\@ifmtarg{#3}{}{ (with #3)}}, #4}
 }
 \NewDocumentCommand{\cvarxivpreprint}{mmom}{
 \cvpublication{#1}{#2}[#3]{preprint (\href{https://arxiv.org/abs/#4}{\texttt{arXiv:}}\allowbreak\href{https://arxiv.org/abs/#4}{\texttt{#4}})}
@@ -47,6 +53,7 @@
 \firstname{Filippo}
 \familyname{Baroni}
 \email{filippo.baroni@maths.ox.ac.uk}
+\homepage{filippobaroni.github.io}
 
 
 \begin{document}
@@ -54,15 +61,15 @@
 \maketitle{}
 
 \section{Education}
-\cventry{2021 -- \phantom{2023}}{DPhil}{University of Oxford}{}{}{Advisor: Marc Lackenby}
-\cvline{2016 -- 2021}{Student of mathematics at \emph{Scuola Normale Superiore di Pisa}}
-\cventry{2019 -- 2021}{Master's degree}{University of Pisa}{}{}{Advisor: Carlo Petronio\\Degree thesis: \emph{Realisability of branching data with a short partition}}
-\cventry{2016 -- 2019}{Bachelor's degree}{University of Pisa}{}{}{Advisor: Riccardo Benedetti\\Degree thesis: \emph{Singular homology of fibred spaces}}
+\mycventry{2021 -- \phantom{2023}}{DPhil}{University of Oxford}{}{}{Advisor: Marc Lackenby}
+\mycvline{2016 -- 2021}{Student of mathematics at \emph{Scuola Normale Superiore di Pisa}}
+\mycventry{2019 -- 2021}{Master's degree}{University of Pisa}{}{}{Advisor: Carlo Petronio\\Degree thesis: \emph{Realisability of branching data with a short partition}}
+\mycventry{2016 -- 2019}{Bachelor's degree}{University of Pisa}{}{}{Advisor: Riccardo Benedetti\\Degree thesis: \emph{Singular homology of fibred spaces}}
 
-\section{Publications}
+\section{Publications and preprints}
 \cvarxivpreprint{2023}{Classification of genus-two surfaces in $S^3$}{2309.05387}
 \cvarxivpreprint{2023}{Solution of the Hurwitz problem with a length-$2$ partition}[Carlo Petronio]{2305.06634}
-\cvline{2022}{\emph{The Proportionality Principle via Bounded Cohomology}, in \emph{Bounded Cohomology and Simplicial Volume} (pp.~118--131), Cambridge University Press}
+\mycvline{2022}{\emph{The Proportionality Principle via Bounded Cohomology}, in \emph{Bounded Cohomology and Simplicial Volume} (pp.~118--131), Cambridge University Press}
 
 
 
@@ -73,6 +80,7 @@
 \cvspeaker{Feb 2021}{International young seminar on bounded cohomology and simplicial volume}{online}{Talk: \emph{The proportionality principle via bounded cohomology}}
 
 \section{Teaching}
+\cvteaching{Oct--Dec 2023}{Pure maths}{St Catherine's College, Oxford}{Tutor}
 \cvteaching{Apr--Jun 2023}{Graph theory}{St Catherine's College, Oxford}{Tutor}
 \cvteaching{Jan--Mar 2023}{Low-dimensional topology and knot theory}{University of Oxford}{Tutor}
 \cvteaching{Oct--Dec 2022}{Set theory}{University of Oxford}{Tutor}
