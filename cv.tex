@@ -13,6 +13,11 @@
 \usepackage[left=1.2in,right=1.2in,top=1.5in,bottom=1.5in]{geometry}
 \recomputelengths
 
+\usepackage[date=year,sortcites,giveninits=false,doi=false,isbn=false,url=false,style=ext-numeric,maxbibnames=99]{biblatex}
+\DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
+\NewDocumentCommand{\preprintbibliography}{mm}{Preprint (\texttt{\href{https://arxiv.org/abs/#1.#2}{arXiv:}\allowbreak\href{https://arxiv.org/abs/#1.#2}{#1.}\allowbreak\href{https://arxiv.org/abs/#1.#2}{#2}})}
+\addbibresource{bibliography.bib}
+
 \moderncvtheme{classic}
 \sethintscolumntowidth{Xxx--Xxx 2023}
 
@@ -70,7 +75,8 @@
 \cvarxivpreprint{2024}{Uniformly polynomial-time classification of surface homeomorphisms}{2402.00231}
 \cvarxivpreprint{2023}{Classification of genus-two surfaces in $S^3$}{2309.05387}
 % \cvarxivpreprint{2023}{Solution of the Hurwitz problem with a length-$2$ partition}[Carlo Petronio]{2305.06634}
-\mycvline{2024}{\emph{Solution of the Hurwitz problem with a length-$2$ partition} (with Carlo Petronio), accepted for publication in \emph{Illinois Journal of Mathematics}}
+\mycvline{2024}{\emph{Solution of the Hurwitz problem with a length-$2$ partition} (with Carlo Petronio), in \emph{Illinois Journal of Mathematics} 68.3, pp.~479-511}
+% \mycvline{2024}{\fullcite{hurwitz-existence-problem-length-2}}
 \mycvline{2022}{\emph{The Proportionality Principle via Bounded Cohomology}, in \emph{Bounded Cohomology and Simplicial Volume} (pp.~118--131), Cambridge University Press}
 
 
